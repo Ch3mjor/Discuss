@@ -30,6 +30,8 @@ defmodule DiscussWeb.TopicController do
     end
 
     def edit(conn, %{"id" => topic_id}) do
-        IO.inspect(topic_id)
+        topic = Repo.get(Topic, topic_id)
+        changeset = Topic.changeset(topic)
+        render conn, "edit.html", changeset: changeset, topic: topic
     end
 end
