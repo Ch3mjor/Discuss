@@ -28,8 +28,8 @@ defmodule DiscussWeb.Router do
   scope "/auth", DiscussWeb do
     pipe_through :browser
 
-    get "/:provider", DiscussWeb.AuthController, :request
-    get "/:provider/callback", DiscussWeb.AuthContoller, :callback
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
   end
 
   # Other scopes may use custom stacks.
