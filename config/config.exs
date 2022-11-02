@@ -53,7 +53,7 @@ import_config "#{config_env()}.exs"
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: { Ueberauth.Strategy.Github,  []}
+    github: {Ueberauth.Strategy.Github, []}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Github.Oauth,
