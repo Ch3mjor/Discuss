@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <%!-- <body>
-    <header>
+   <%!--  <body>
+  <header>
       <section class="container">
         <nav>
           <ul>
@@ -30,7 +30,18 @@
         <body>
     <nav class="light-blue">
     <div class="nav-wrapper container"> 
-    <a href="/" class="brand-logo"> Discussion</a>
+    <a href="/" class="brand-logo"> Discussion </a>
+    <ul class="right">
+      <%= if @conn.assigns[:user] do %>
+        <li>
+        Logout
+        </li>
+      <% else %>
+      <li>
+       <%= link "Sign in with Github", to: Routes.auth_path(@conn, :request, "github") %>
+      </li>
+      <% end %> 
+    </ul>
     </div>
     </nav>
     <%= @inner_content %>
