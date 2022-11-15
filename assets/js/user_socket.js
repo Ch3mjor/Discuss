@@ -60,7 +60,7 @@ socket.connect()
 const createSocket = (topicId) => {
   let channel = socket.channel(`comments:${topicId}`, {})
   channel.join()
-    .receive("ok", resp => { console.log("Joined successfully", resp) })
+    .receive("ok", resp => { console.log("Joined successfully", resp.comments) })
     .receive("error", resp => { console.log("Unable to join", resp) })
 
   document.querySelector('button').addEventListener('click', () => { 
