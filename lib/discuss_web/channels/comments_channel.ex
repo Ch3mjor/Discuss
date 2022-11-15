@@ -1,12 +1,14 @@
 defmodule DiscussWeb.CommentsChannel do
    use DiscussWeb, :channel
 
-   def join(name, _auth_params, socket) do
+   @impl true
+   def join(name, _params, socket) do
       IO.puts("+++++++++++++++++++++++")
       IO.puts(name)
-      
+      {:ok, %{hey: "there"}, socket}
    end
 
-   def handle_in() do
+   @impl true
+   def handle_in(_param, _payload, _socket) do
    end
 end
